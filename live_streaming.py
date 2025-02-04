@@ -296,12 +296,9 @@ class Streaming:
 
 async def main():
     tasks = []
-    #for category in range(1,10):
-    #    sr = Streaming(category)
-    #    task = asyncio.create_task(asyncio.to_thread(sr.run))
-    #    tasks.append(task)
-    sr = Streaming(3)
-    task = asyncio.create_task(asyncio.to_thread(sr.run))
-    tasks.append(task)
+    for category in range(1,10):
+        sr = Streaming(category)
+        task = asyncio.create_task(asyncio.to_thread(sr.run))
+        tasks.append(task)
         
     await asyncio.gather(*tasks)
